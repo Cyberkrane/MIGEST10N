@@ -5,14 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthRoutingModule,
     SharedModule,
     BrowserAnimationsModule
   ],

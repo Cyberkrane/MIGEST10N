@@ -12,6 +12,11 @@
           [ngClass]="{'is-invalid': this.authForm.get('user')?.errors && this.authForm.get('user')?.touched}" 
           />
   </mat-form-field>
+
+      
+    <small class="text-danger mb-2" *ngIf="this.authForm.get('user')?.errors?.['oneAdminValidator']">
+        {{ this.authForm.get('user')?.getError("oneAdminValidator") | json }}
+    </small>
     
     <small class="text-danger mb-2"  
           *ngIf="this.authForm.get('user')?.errors?.['required']

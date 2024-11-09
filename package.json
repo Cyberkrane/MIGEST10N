@@ -1,6 +1,6 @@
 {
     "name": "migest10-n",
-    "version": "0.0.1",
+    "version": "0.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",

@@ -14,11 +14,11 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
     NotFoundComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     AuthRoutingModule,
-    SharedModule,
-    BrowserAnimationsModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

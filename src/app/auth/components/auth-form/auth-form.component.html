@@ -1,0 +1,75 @@
+<form [formGroup]="authForm"
+      (click)="onSubmit()"
+  class="d-flex flex-column justify-content-center align-items-center col-5 mx-auto my-5 py-5 bg-light rounded-4 shadow"
+>
+  <h1 class="text-dark">{{ authFormTitle }}</h1>
+
+  <mat-form-field class="col-8" appearance="fill">
+    <mat-label>User</mat-label>
+    <input matInput 
+          type="text" 
+          formControlName="user" 
+          [ngClass]="{'is-invalid': this.authForm.get('user')?.errors && this.authForm.get('user')?.touched}" 
+          />
+  </mat-form-field>
+
+      
+    <small class="text-danger mb-2" *ngIf="this.authForm.get('user')?.errors?.['oneAdminValidator']">
+        {{ this.authForm.get('user')?.getError("oneAdminValidator") | json }}
+    </small>
+    
+    <small class="text-danger mb-2"  
+          *ngIf="this.authForm.get('user')?.errors?.['required']
+          && this.authForm.get('user')?.touched">
+          el campo es requerido
+    </small>
+    
+    <small class="text-danger mb-2"  *ngIf="this.authForm.get('user')?.errors?.['minlength']">
+          el campo debe tener al menos {{this.authForm.get('user')?.getError('minlength')?.requiredLength}} caracteres
+    </small>
+
+    <small class="text-danger mb-2" 
+          *ngIf="this.authForm.get('user')?.errors?.['pattern'] 
+          && this.authForm.get('user')?.touched">
+          El nombre de usuario no debe contener números ni caracteres especiales.
+    </small>
+
+
+  <mat-form-field class="col-8" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password"/>
+  </mat-form-field>
+    <small class="text-danger" 
+          *ngIf="this.authForm.get('password')?.errors?.['required']
+          && this.authForm.get('password')?.touched" 
+          >el campo es requerido</small>
+    <small *ngIf="this.authForm.get('password')?.errors?.['minlength'] ">
+      el campo debe tener al menos {{this.authForm.get('password')?.errors?.['minlength']?.requiredLength}} caracteres
+    </small>
+
+
+  <mat-form-field class="col-8" appearance="fill" *ngIf="authFormTitle === 'Register'">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput type="text" formControlName="confirmPassword" />
+  </mat-form-field>
+    <small class="text-danger" 
+          *ngIf="authFormTitle === 'Register' 
+          && this.authForm.get('confirmPassword')?.errors?.['required']
+          && this.authForm.get('confirmPassword')?.touched" 
+          >el campo es requerido</small>
+
+
+  <button mat-raised-button 
+          color="primary" 
+          type="submit" 
+          class="col-8"
+          [disabled]='!this.authForm.valid'
+          >Send</button>
+
+  <div class="d-flex justify-content-around col-10 mt-3">
+    <a routerLink="/register">I´ve an account</a>
+    <a routerLink="/forgot-password" class="ml-2">I forgot my password</a>
+  </div>
+
+</form>
+

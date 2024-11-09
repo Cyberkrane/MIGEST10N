@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/components/login/login.component';
+import { AuthHomeComponent } from './auth/components/auth-home/auth-home.component';
 
 // lazy loading confirmado
 const routes: Routes = [
 
-  {
+ {
     path: 'auth',
-    component: LoginComponent,
+    component: AuthHomeComponent,
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   { path: '', redirectTo: '/auth/login', pathMatch: 'full' },

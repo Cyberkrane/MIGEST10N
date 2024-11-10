@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
     AuthRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule
   ],
   providers: [],

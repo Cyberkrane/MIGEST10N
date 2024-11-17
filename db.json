@@ -2,8 +2,7 @@
     "users": [
         {
             "id": 1,
-            "username": "onelegion",
-            "password": "legion212",
+            
             "email": "oneLegion@example.com",
             "roleAdmin": true
         }

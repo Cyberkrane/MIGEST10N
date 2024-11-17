@@ -1,0 +1,40 @@
+<p>
+  <mat-toolbar>
+    <span class="example-spacer"></span>
+    <div
+      class="d-flex justify-content-around gap-4"
+      *ngIf="authenticatedUser$ | async; let user"
+    >
+      <button mat-icon-button class="d-flex flex-column">
+        <mat-icon aria-label="user" class="material-symbols-outlined">
+          account_circle
+        </mat-icon>
+        <p>
+          {{ user.username }}
+        </p>
+      </button>
+
+      <button mat-icon-button class="d-flex flex-column" (click)="logout()">
+        <mat-icon aria-label="logout" class="material-symbols-outlined">
+          logout
+        </mat-icon>
+        <p>Logout</p>
+      </button>
+    </div>
+    <div
+      class="d-flex justify-content-around gap-4"
+      *ngIf="(authenticatedUser$  | async ) === null"
+    >
+      <button mat-icon-button class="d-flex flex-column" routerLink="/auth/login">
+        <mat-icon aria-label="login" class="material-symbols-outlined">
+          login
+        </mat-icon>
+        <p>Login</p>
+      </button>
+    </div>
+  </mat-toolbar>
+</p>
+
+<div class="d-flex justify-content-center align-items-center home">
+  <h1>!!! Bienvenidos al HomeTemp !!!</h1>
+</div>

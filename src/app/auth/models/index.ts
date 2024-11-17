@@ -1,8 +1,7 @@
-export interface IUser  {
+export interface AuthData {
     id?: string,
     username: string,
     password: string,
     email?: string,
-    token: string,
     roleAdmin?: boolean
 }

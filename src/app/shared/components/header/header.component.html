@@ -14,10 +14,7 @@
     class="d-flex justify-content-around align-items-baseline gap-4"
     *ngIf="authenticatedUser$ | async; let user"
   >
-    <button mat-icon-button class="d-flex flex-column gap-0 ">
-      <!-- <mat-icon aria-label="user" class="material-symbols-outlined">
-        account_circle
-      </mat-icon> -->
+    <button mat-icon-button class="d-flex flex-column">
       <p>
         {{ user.username }}
       </p>
@@ -33,7 +30,7 @@
     class="d-flex justify-content-around gap-4"
     *ngIf="(authenticatedUser$ | async) === null"
   >
-    <button mat-icon-button class="d-flex flex-column" routerLink="/auth/login">
+    <button mat-icon-button class="d-flex flex-column" routerLink="/auth/login" (click)="login()">
       <mat-icon aria-label="login" class="material-symbols-outlined">
         login
       </mat-icon>

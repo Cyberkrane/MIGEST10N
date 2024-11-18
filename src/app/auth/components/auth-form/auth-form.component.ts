@@ -40,6 +40,7 @@ export class AuthFormComponent {
   public onSubmit(): void {
     this.authService.login(this.authForm.value).subscribe({
       next: (user) => {
+        // TODO: usar tosastr para mostrar el mensaje
         console.log('Te has logueado exitosamente!!  😊', user);
         this.router.navigate(['/homeTEMP']);
       },

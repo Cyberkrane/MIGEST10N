@@ -1,12 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 .material-symbols-outlined {
     color: rgb(7, 241, 241);
     text-shadow: 0 0 3px #050505;
     font-size: 2rem;
-    margin: 0;
-    padding: 0;
     cursor: pointer;
+  }
+
+  .mat-icon-button{
+
+    line-height: 25px;
+    p{
+      font-size: 0.8rem;
+      font-weight: lighter;
+    }
   }

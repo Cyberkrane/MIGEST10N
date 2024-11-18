@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { timer } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable, timer } from 'rxjs';
+import { IUser } from 'src/app/core/global-interfaces/users.interface';
 import { AuthService } from 'src/app/core/global-services/auth.service';
 
 @Component({
@@ -10,27 +10,23 @@ import { AuthService } from 'src/app/core/global-services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-
   @Input() title: string = 'revisa el origen del titulo';
 
-  @Output() titleChange = new EventEmitter<string>();
+  public authenticatedUser$: Observable<IUser | null>;
 
-
-
-
-  constructor(private readonly router: Router,
-    private readonly authService: AuthService
-  ) {
-   
-  }
+  constructor(private readonly authService: AuthService) {
+    this.authenticatedUser$ = this.authService.authUserLogged$
+   }
 
   ngOnInit(): void {
 
-    timer(5000).subscribe(() => {
+    timer(1000).subscribe(() => {
       this.title = 'MI GESTION';
-      this.titleChange.emit(this.title);
     });
+  }
 
-
+  logout(): void {
+    this.authService.logout();
+    localStorage.removeItem('token');
   }
 }

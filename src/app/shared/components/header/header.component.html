@@ -1,13 +1,42 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
+
+  <mat-icon class="material-symbols-outlined mglogo" matTooltip="logo MI GESTION">
+    account_balance
+    </mat-icon>
+
+  <span class="example-spacer"></span>
+
+  <span class="material-symbols-outlined">{{ title }}</span>
+  
+  <span class="example-spacer"></span>
+<!-- USER -->
+  <div
+    class="d-flex justify-content-around align-items-baseline gap-4"
+    *ngIf="authenticatedUser$ | async; let user"
+  >
+    <button mat-icon-button class="d-flex flex-column gap-0 ">
+      <!-- <mat-icon aria-label="user" class="material-symbols-outlined">
+        account_circle
+      </mat-icon> -->
+      <p>
+        {{ user.username }}
+      </p>
     </button>
-    <span>{{ title }}</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+  <!-- SESSION -->
+    <button mat-icon-button class="d-flex flex-column" (click)="logout()">
+      <mat-icon aria-label="logout" class="material-symbols-outlined">
+        logout
+      </mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
+  </div>
+  <div
+    class="d-flex justify-content-around gap-4"
+    *ngIf="(authenticatedUser$ | async) === null"
+  >
+    <button mat-icon-button class="d-flex flex-column" routerLink="/auth/login">
+      <mat-icon aria-label="login" class="material-symbols-outlined">
+        login
+      </mat-icon>
     </button>
-  </mat-toolbar>
+  </div>
+</mat-toolbar>

@@ -45,7 +45,6 @@ export class AuthService {
   verifyToken(): Observable<boolean> {
     const isValid = localStorage.getItem('token') === FAKE_USER.token;
     if (isValid) {
-      console.log('if: ', isValid);
       this._authUserLogged$.next(FAKE_USER);
     } else {
       this._authUserLogged$.next(null);

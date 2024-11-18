@@ -42,7 +42,7 @@ export class AuthFormComponent {
       next: (user) => {
         // TODO: usar tosastr para mostrar el mensaje
         console.log('Te has logueado exitosamente!!  😊', user);
-        this.router.navigate(['/homeTEMP']);
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         console.log('error: ', error);

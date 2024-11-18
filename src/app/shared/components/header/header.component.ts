@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { IUser } from 'src/app/core/global-interfaces/users.interface';
 import { AuthService } from 'src/app/core/global-services/auth.service';
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   public authenticatedUser$: Observable<IUser | null>;
 
-  constructor(private readonly authService: AuthService) {
+  constructor(private readonly authService: AuthService, private readonly router: Router) {
     this.authenticatedUser$ = this.authService.authUserLogged$
    }
 
@@ -23,6 +24,10 @@ export class HeaderComponent implements OnInit {
     timer(1000).subscribe(() => {
       this.title = 'MI GESTION';
     });
+  }
+
+  login(): void {
+    this.router.navigate(['/auth/login']);
   }
 
   logout(): void {

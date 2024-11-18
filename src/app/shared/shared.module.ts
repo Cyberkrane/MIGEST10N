@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     CommonModule,
 
     // Angular Material
+    MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -40,7 +42,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatListModule,
     MatInputModule,
     MatFormFieldModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSidenavModule
   ]
 })
 export class SharedModule { }

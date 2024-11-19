@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './features/home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,9 @@ import { HomeComponent } from './features/home/home.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule
-  ],
+    SharedModule,
+    ReactiveFormsModule
+],
   providers: [],
   bootstrap: [AppComponent]
 })

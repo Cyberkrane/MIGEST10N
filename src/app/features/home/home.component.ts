@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public toggle: string = 'arrow_forward_ios';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleMenu(): void {
+    this.toggle = this.toggle === 'arrow_back_ios' ? 'arrow_forward_ios' : 'arrow_back_ios';
   }
 
 }

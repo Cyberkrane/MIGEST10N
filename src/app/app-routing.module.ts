@@ -16,7 +16,8 @@ const routes: Routes = [
   {
     path: 'home',
     canActivate: [AuthGuard], 
-    component: HomeComponent
+    component: HomeComponent,
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'not-found',

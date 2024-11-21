@@ -37,6 +37,7 @@ export class AuthFormComponent {
 
   }
 
+
   public onSubmit(): void {
     this.authService.login(this.authForm.value).subscribe({
       next: (user) => {

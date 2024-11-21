@@ -13,7 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     HeaderComponent
@@ -31,7 +31,8 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     MatFormFieldModule,
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     HeaderComponent,
@@ -46,7 +47,8 @@ import {MatTableModule} from '@angular/material/table';
     MatFormFieldModule,
     MatTooltipModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

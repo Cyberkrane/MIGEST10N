@@ -5,17 +5,21 @@ import { HomeRoutingModule } from './home-routing.module';
 import { ListComponent } from './components/list/list.component';
 import { FormComponent } from './components/form/form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
   declarations: [
     ListComponent,
-    FormComponent
+    FormComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

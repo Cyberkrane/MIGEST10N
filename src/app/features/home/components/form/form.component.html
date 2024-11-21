@@ -1,1 +1,28 @@
-<p>form works!</p>
+
+
+<form [formGroup]="projectForm" 
+        (ngSubmit)="onSubmit()" 
+        class="d-flex flex-column justify-content-center align-items-center mx-auto my-5 py-5">
+
+    <mat-form-field class="col-8" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name"  (ngModelChange)="onFormChange()"/>
+    </mat-form-field>
+
+    <mat-form-field class="col-8" appearance="fill">
+        <mat-label>Budget</mat-label>
+        <input matInput type="number" formControlName="budget"  (ngModelChange)="onFormChange()"/>
+    </mat-form-field>
+    
+    <mat-form-field class="col-8" appearance="fill">
+        <mat-label>Priority</mat-label>
+        <input matInput type="number" formControlName="priority"  (ngModelChange)="onFormChange()"/>
+    </mat-form-field>
+    
+    <mat-form-field class="col-8" appearance="fill">
+        <mat-label>Created At</mat-label>
+        <input matInput type="date" formControlName="createdAt"  (ngModelChange)="onFormChange()"/>
+    </mat-form-field>
+    
+
+</form>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IProject } from '../../interfaces/iproject.interface';
 import { FormService } from '../../services/form.service';
+import { ProjectService } from 'src/app/core/global-services/project.service';
 
 @Component({
   selector: 'app-modal',
@@ -21,7 +22,9 @@ export class ModalComponent {
 
   constructor(public activeModal: NgbActiveModal,
               private readonly modalService: NgbModal,
-              private readonly formService: FormService
+              private readonly formService: FormService,
+              private readonly projectService: ProjectService
+
   ) {
     // Suscribirse a los datos del formulario
     this.formService.formData$.subscribe(data => {
@@ -31,11 +34,20 @@ export class ModalComponent {
 
   // Enviar los datos
   submitForm() {
-    console.log('Datos del formulario:', this.formData);
-   this.openModal();
+    // console.log('Datos del formulario:', this.formData);
+    this.projectService.addProject(this.formData).subscribe((project) => {
+      console.log('Proyecto creado:', project);
+    })
+
+  //  this.openModal();
+  this.closeModal();
   }
 
   openModal() {
     this.modalService.open(ModalComponent);
+  }
+
+  closeModal() {
+    this.activeModal.close();
   }
 }

@@ -1,24 +1,28 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-  <p>item-list</p>
-  <p>item-list</p>
-  <p>item-list</p>
-  <p>item-list</p>
-  <p>item-list</p>
-  <p>item-list</p>
-
+    <p>item-list</p>
+    <p>item-list</p>
+    <p>item-list</p>
+    <p>item-list</p>
+    <p>item-list</p>
+    <p>item-list</p>
   </mat-drawer>
 
   <button mat-icon-button>
-    <mat-icon aria-label="logout" class="material-symbols-outlined" (click)="drawer.toggle(); toggleMenu()">
-      {{toggle}}
+    <mat-icon
+      aria-label="logout"
+      class="material-symbols-outlined"
+      (click)="drawer.toggle(); toggleMenu()"
+    >
+      {{ toggle }}
     </mat-icon>
   </button>
 
-  <div class="example-sidenav-content">
-    <button class="btn btn-primary" (click)="openModal()">Abrir Formulario</button>
+  <div class="example-sidenav-content d-flex flex-column gap-3">
+    <button class="btn btn-primary" (click)="openModal()">
+      Abrir Formulario
+    </button>
 
     <router-outlet></router-outlet>
   </div>
-
 </mat-drawer-container>

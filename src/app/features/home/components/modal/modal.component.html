@@ -6,7 +6,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <app-form (titleForm)="titleForm = $event"></app-form>
+    <app-form [titleForm]="titleForm"></app-form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss('cancel')">Cancelar</button>

@@ -19,7 +19,7 @@ import { ModalComponent } from './components/modal/modal.component';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class HomeModule { }

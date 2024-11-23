@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs';
 import { FormService } from '../../services/form.service';
 
 @Component({
@@ -8,12 +7,10 @@ import { FormService } from '../../services/form.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent  {
 
   public projectForm: FormGroup;
-  @Output() public titleForm = new EventEmitter<string>();
- 
-
+  @Input() public titleForm: string = '';
 
   constructor(private readonly fb: FormBuilder, 
     private readonly formService: FormService
@@ -27,9 +24,6 @@ export class FormComponent implements OnInit {
     })
    }
 
-  ngOnInit(): void {
-    return this.titleForm.emit('Create a new project');
-  }
 
   // Método que se ejecuta cuando hay un cambio en el formulario
   onFormChange() {

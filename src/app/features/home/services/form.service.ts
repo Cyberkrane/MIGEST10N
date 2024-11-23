@@ -9,6 +9,7 @@ export class FormService {
 
  // BehaviorSubject para mantener los datos del formulario
  private readonly formDataSource = new BehaviorSubject<any>({});
+
  formData$ = this.formDataSource.asObservable();
 
  // Método para actualizar los datos

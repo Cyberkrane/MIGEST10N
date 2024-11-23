@@ -13,7 +13,7 @@ export class FormComponent  {
   @Input() public titleForm: string = '';
 
   constructor(private readonly fb: FormBuilder, 
-    private readonly formService: FormService
+    private readonly formService: FormService,
   ) {
     this.projectForm = this.fb.group({
       id: [''],
@@ -24,13 +24,24 @@ export class FormComponent  {
     })
    }
 
-
+  
   // Método que se ejecuta cuando hay un cambio en el formulario
   onFormChange() {
     this.formService.updateFormData(this.projectForm.value);
   }
 
-   onSubmit() {
-    console.log('Form value: ',this.projectForm.value);
+  idAlfanumericGenerator() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let id = '';
+    for (let i = 0; i < 10; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      id += characters.charAt(randomIndex);
+    }
+    return id;
   }
+
+   onSubmit() {
+    this.projectForm.value.id = this.idAlfanumericGenerator();
+    console.log('Form value: ',this.projectForm.value);
+   }
 }

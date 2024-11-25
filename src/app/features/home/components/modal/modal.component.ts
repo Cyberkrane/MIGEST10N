@@ -3,6 +3,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IProject } from '../../interfaces/iproject.interface';
 import { FormService } from '../../services/form.service';
 import { ProjectService } from 'src/app/core/global-services/project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -21,9 +22,10 @@ export class ModalComponent {
   titleForm: string = 'Create new project';
 
   constructor(public activeModal: NgbActiveModal,
-              private readonly modalService: NgbModal,
-              private readonly formService: FormService,
-              private readonly projectService: ProjectService
+    private readonly modalService: NgbModal,
+    private readonly formService: FormService,
+    private readonly projectService: ProjectService,
+    private readonly router: Router
 
   ) {
     // Suscribirse a los datos del formulario
@@ -33,15 +35,31 @@ export class ModalComponent {
   }
 
   // Enviar los datos
-  submitForm() {
-    // console.log('Datos del formulario:', this.formData);
-    this.projectService.addProject(this.formData).subscribe((project) => {
-      console.log('Proyecto creado:', project);
-    })
+  // submitForm() {
+  //   this.projectService.addProject(this.formData).subscribe((project) => {
+  //     console.log('Proyecto creado:', project);
+  //   })
+  //   this.router.navigate(['/list']);
 
-  //  this.openModal();
-  this.closeModal();
-  }
+  //   this.closeModal();
+  // }
+
+  // Enviar los datos
+submitForm() {
+  this.projectService.addProject(this.formData).subscribe({
+    next: (project) => {
+      console.log('Proyecto creado:', project);
+      // Redirigir solo si la creación fue exitosa
+      this.router.navigate(['/home']);
+      // Cerrar el modal después de redirigir
+      this.closeModal();
+    },
+    error: (err) => {
+      console.error('Error al crear el proyecto:', err);
+      // Puedes manejar el error aquí si es necesario
+    }
+  });
+}
 
   openModal() {
     this.modalService.open(ModalComponent);

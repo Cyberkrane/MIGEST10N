@@ -32,13 +32,7 @@ export class ListComponent implements OnInit {
   }
 
   deleteProject(id: string) {
-   this.productService.deleteProject({
-     id,
-     name: '',
-     budget: 0,
-     priority: 0,
-     createdAt: new Date()
-   }).subscribe(data => {
+   this.productService.deleteProject(id).subscribe(data => {
     console.log('data: ', data); 
     this.loadAllProjects();
    })

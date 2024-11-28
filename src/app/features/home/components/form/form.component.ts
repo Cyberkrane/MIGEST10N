@@ -16,7 +16,7 @@ export class FormComponent  {
     private readonly formService: FormService,
   ) {
     this.projectForm = this.fb.group({
-      id: [''],
+      id: this.idAlfanumericGenerator(),
       name: [''],
       budget: [''],
       priority: [''],
